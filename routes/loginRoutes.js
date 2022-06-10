@@ -9,15 +9,10 @@ app.set('views', 'views');
 app.use(bodyParser.urlencoded({ extended: false }));
 
 router.get('/', (req, res, next) => {
-    res.status(200).render('home');
-});
-
-router.get('/catalogo/:id', (req, res, next) => {
     var payload = {
-        pageTitle: req.params.id,
+        pageTitle: "Login",
     }
-    console.log(payload.pageTitle)
-    res.status(200).render('home', payload);
+    res.status(200).render('login');
 });
 
 module.exports = router;

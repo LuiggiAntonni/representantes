@@ -1,0 +1,31 @@
+.loginContainer {
+    margin-top: 7em;
+    justify-content: center;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.google-button {
+    border-style: none;
+    border-radius: 5em;
+    border-color: #ED2939;
+    background-color: #ED2939;
+    padding: 0.7em 1em;
+}
+
+.google-button span {
+    margin-left: 9px;
+    color: white; 
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.google-button svg {
+    color: white;
+}

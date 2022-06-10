@@ -2,12 +2,15 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const path = require('path')
-const cookieSession = require('cookie-session')
+const session = require('express-session')
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config()
 const server = app.listen(port, () => console.log('Server rodando na porta ' + port))
 const mysql = require('mysql');
 const pool = require('./mysql').pool;
+const passport = require('passport')
+require('./auth/passport')
+
 
 var con = mysql.createConnection({
     host: process.env.MYSQL_HOST,
@@ -58,20 +61,38 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cookieSession({
-    key: "keyDoSite",
+app.use(session({
     secret: process.env.SESSION_SECRET,
-    cookie: {
-        maxAge: 24 * 60 * 60 * 1000
-    },
-}));
+    name: 'session',
+    resave: false,
+    saveUninitialized: true
+}))
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Routes 
 const mainRoute = require('./routes/mainRoutes');
+const loginRoute = require('./routes/loginRoutes');
+const authRoute = require('./routes/auth')
 
 // Api routes
 const emailApiRoute = require('./routes/api/emailApi')
 
+const isLoggedIn = (req, res, next) => {
+    if (req.user) {
+        next();
+    } else {
+        res.sendStatus(401);
+    }
+}
+
+
 app.use('/api', emailApiRoute);
+
+app.use('/login', loginRoute);
+
+app.get('/perfil', isLoggedIn, (req, res) => res.send(`Boas-vindas, ${req.user._json.email}`))
+
+app.use('/auth', authRoute);
 
 app.use('/', mainRoute);
