@@ -39,7 +39,7 @@ con.connect(function (err) {
         console.log("Tabela Email iniciada");
     });
 
-    var sql1 = "CREATE TABLE IF NOT EXISTS catalogo (CatalogoID INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL, email_FK VARCHAR(255) NOT NULL, ano VARCHAR(255) NOT NULL, imagem VARCHAR(255) DEFAULT \'semimagem.png\', FOREIGN KEY (email_FK) REFERENCES email (email))";
+    var sql1 = "CREATE TABLE IF NOT EXISTS catalogo (CatalogoID INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL, email_FK VARCHAR(255) NOT NULL, ano VARCHAR(255), imagem VARCHAR(255) DEFAULT \'semimagem.png\', FOREIGN KEY (email_FK) REFERENCES email (email))";
     con.query(sql1, function (err, result) {
         if (err) throw err;
         console.log("Tabela Catalogos iniciada");
@@ -70,28 +70,21 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 // Routes 
 const mainRoute = require('./routes/mainRoutes');
 const loginRoute = require('./routes/loginRoutes');
 const authRoute = require('./routes/auth')
+const repRoute = require('./routes/repRoutes')
 
 // Api routes
-const emailApiRoute = require('./routes/api/emailApi')
+const apiRoute = require('./routes/api/apiRoutes')
 
-const isLoggedIn = (req, res, next) => {
-    if (req.user) {
-        next();
-    } else {
-        res.sendStatus(401);
-    }
-}
+app.use('/api', apiRoute);
 
-
-app.use('/api', emailApiRoute);
+app.use('/rep', repRoute);
 
 app.use('/login', loginRoute);
-
-app.get('/perfil', isLoggedIn, (req, res) => res.send(`Boas-vindas, ${req.user._json.email}`))
 
 app.use('/auth', authRoute);
 

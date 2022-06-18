@@ -7,11 +7,9 @@ router.get('/google', passport.authenticate('google', {
 }));
 
 router.get('/google/callback', passport.authenticate('google', {
-  successRedirect: '/perfil',
+  successRedirect: '/rep/perfil',
   failureRedirect: '/failed'
-}), (req, res) => {
-  res.redirect('/perfil')
-});
+}));
 
 router.get('/logout', (req, res) => {
   req.logout(function (err) {
