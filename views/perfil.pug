@@ -1,4 +1,4 @@
-html(lang="en")
+html(lang="pt-PT")
     head
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
@@ -26,15 +26,15 @@ html(lang="en")
                 .mb-3.row
                     label.col-sm-2.col-form-label(for='ano') Data
                     .col-sm-10
-                        input#ano.form-control(type='month', name="ano")
+                        input#ano.form-control(type='month', name="ano", min="2000-01-02")
                 .mb-3.row
                     label.col-sm-2.col-form-label(for='image') Foto
                     .col-sm-10
-                        input#image.form-control(type='file', name="imagem", accept='image/png, image/jpeg, image/pjepeg')
-                button.btn.btn-primary(type='submit') Submit
-        .card(style='width: 18rem;')
-            img.card-img-top(src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png', alt='Foto do catalogo')
-            .card-body
-                h5.card-title Foto do catalogo
-                p.card-text Ano do catalogo
-                a.btn.btn-primary(href='#') Editar
+                        input#image.form-control(type='file', name="imagem", accept='image/png, image/jpeg, image/pjepeg', multiple = false)
+                button.btn.btn-primary(type='submit') Adicionar
+        .container-md.px-5.mx-5
+            ul.catalogos
+        script.
+            var emailPayload = '!{email}'
+        script(src='https://code.jquery.com/jquery-1.9.1.js')
+        script(src="/js/catalogos.js")

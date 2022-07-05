@@ -1,11 +1,13 @@
 function createCatalogosHtml(result) {
-    return `<div class="card" style="width: 18rem;"><img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Foto do catalogo" />
-                <div class="card-body">
-                    <h5 class="card-title">${result.name}</h5>
-                    <p class="card-text">${result.ano}</p><a class="btn btn-primary" href="/api/catalogo/${result.email_FK}/${result.CatalogoID}">Editar</a>
-                    <p>${result.imagem}</p>
+    return `<li>  
+                <div class="card" style="width: 18rem;"><img class="card-img-top" src="/images/${result.imagem}" alt="Foto do catalogo" />
+                    <div class="card-body" id="${result.CatalogoID}">
+                        <h5 class="card-title">${result.name}</h5>
+                        <p class="card-text">${result.ano}</p><a class="btn btn-primary" href="/rep/catalogo/${result.email_FK}/${result.CatalogoID}">Editar</a>
+                        <p></p>
+                    </div>
                 </div>
-            </div>`
+            </li>`
 }
 
 function output(results, container) {

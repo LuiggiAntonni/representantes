@@ -1,0 +1,320 @@
+#nomeDoCatalogo {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-container {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border-radius: 15px;
+    width: 70%;
+}
+
+#modal-fechar {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#modal-fechar:hover,
+#modal-fechar:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#atualizarNovasCores {
+    background: -webkit-linear-gradient(to right, #0ED2F7, #B2FEFA);
+    background: linear-gradient(to right, #0ED2F7, #B2FEFA);
+    color: white;
+    font-weight: bolder;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10%;
+    padding: 7px 16px;
+}
+
+.novaCores {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.novaCores input[type=text] {
+    margin-right: 5px;
+    width: 30%;
+    border: 0;
+    padding: 7px 15px;
+    border: 1px solid #ccc;
+    position: relative;
+    background: transparent;
+}
+
+.novaCores input[type=text]:focus {
+    background-color: #f5f5f5;
+    transition: 0.3s;
+}
+
+.novaCores input[type=color] {
+    border: 0;
+}
+
+#formPrincipal {
+    padding: 31px 26px;
+    border-bottom: 1px solid grey;
+    background-color: rgba(212, 212, 212, 0.246);
+    border-radius: 11px;
+}
+
+.form-principal-input {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.form-principal-input input {
+    border: 0;
+    padding: 4px 0;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+}
+
+.form-principal-input input:focus {
+    transition: 0.3s;
+    border-bottom: 1px solid #3399FF;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.form-principal-input span {
+    position: absolute;
+    left: 12px;
+    top: -9px;
+    font-size: 12px;
+    width: 100%;
+    color: #aaa;
+    transition: 0.3s;
+    z-index: -1;
+    letter-spacing: 0.5px;
+}
+
+.form-principal-input input:focus + span
+ {
+    color: #3399FF;
+    transition: 0.3s;
+}
+
+.input-image-form-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-content: stretch;
+    flex-wrap: nowrap;
+}
+
+.input-image-form {
+    padding: 5px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-content: stretch;
+    flex-wrap: nowrap;
+    width: 40%;
+    border: 5px dashed rgb(151, 229, 255);
+    border-radius: 20px;
+    background-color: #0ed0f70e;
+    cursor: pointer;
+}
+
+.input-image-form input{
+    display: none;
+}
+
+.thumb-image-form {
+    height: 300px;
+    margin-bottom: 7px;
+}
+
+.input-group .btn {
+    position: relative;
+    z-index: 0;
+}
+
+.container-produtos {
+    max-width: 100%;
+}
+
+.produto-container {
+    margin: 2em 5em;
+    right: -2em;
+    min-width: 18rem;
+    min-height: 21rem;
+    max-width: 288px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-end;
+    flex-direction: row-reverse;
+}
+
+.imagem-container {
+    width: 13em;
+    min-height: 20em;
+    background: linear-gradient(#626161, #616060);
+    position: absolute;
+    left: -7em;
+    top: 3em;
+    display: grid;
+    border-radius: 6px;
+    box-shadow: 4px 4px 25px -2px rgb(0 0 0 / 30%);
+    align-content: stretch;
+    justify-content: space-evenly;
+    align-items: stretch;
+    justify-items: stretch;
+}
+
+.produto-botoes {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0.9em;
+}
+
+.removedor,
+.clonador {
+    margin: 0;
+    width: 5px;
+    height: 22px;
+    justify-content: center;
+    outline: inherit;
+    border: none;
+    background: none;
+}
+
+.removedor {
+    color: #ff8686;
+}
+
+.removedor:hover {
+    color: #ff001e;
+    transition: 0.3s ease;
+}
+
+.clonador {
+    color: #ffffff;
+}
+
+.clonador:hover {
+    transition: 0.3s ease;
+    color: #24bbf6;
+}
+
+.produto-imagem {
+    width: 100%;
+    max-width: 100%;
+    max-height: 44vh;
+}
+
+.almbum-cores {
+    padding: 0.8em 0 0 0;
+    height: 100%;
+    border-radius: 0 0 6px 6px;
+    background-color: #fff;
+    display: flex;
+    justify-items: start;
+    justify-content: center;
+}
+
+.almbum-cores ul {
+    width: 100%;
+    justify-content: space-evenly;
+    display: grid;
+    padding: 0 15px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-content: space-between;
+    align-items: center;
+    justify-items: stretch;
+}
+
+.produto-cores-li {
+    grid-area: 1 / 1;
+    list-style: none;
+    width: 1.5em;
+    height: 1.5em;
+    border: 1px solid rgb(230, 229, 229);
+    border-radius: 5px 20px 5px;
+}
+
+.produto-cores-li:hover {
+    cursor: pointer;
+}
+
+.produto-cores-li span:hover {
+    cursor: text;
+}
+
+.produto-cores-li span {
+    color: rgb(154, 154, 154);
+    font-family: monospace;
+    font-size: 10px;
+    text-align: center;
+    width: 5ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-transform: uppercase;
+    margin-top: 22px;
+    float: left;
+    clear: left;
+}
+
+.produto-info {
+    padding: 0.8em 0;
+    direction: rtl;
+}
+
+.produto-titulo {
+    margin-bottom: 0.1em;
+    color: black;
+    font-size: 1.5em;
+    font-weight: 900;
+}
+
+.preco {
+    margin: 1.5em 0;
+    color: grey;
+    font-size: 1.5em;
+    margin-right: 55px;
+}
+
+.preco span {
+    margin-left: 3px;
+    margin-right: -1em;
+    font-size: 2em;
+}
